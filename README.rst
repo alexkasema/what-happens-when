@@ -224,6 +224,19 @@ DNS lookup
 * If the DNS server is on a different subnet, the network library follows
   the ``ARP process`` below for the default gateway IP.
 
+DNS Resolution Process
+----------
+
+* After the browser sends the DNS query to the configured DNS server,
+  the DNS server begins the resolution process.
+* The DNS server first checks its own cache to see if it has a recent record
+  of the domain name and its corresponding IP address.
+  If found, it responds to the browser with the IP address directly.
+* If the domain name is not found in the DNS server's cache, it initiates a
+  recursive process to resolve the domain name.
+* The DNS server starts querying root DNS servers to find the authoritative
+  DNS server responsible for the top-level domain (TLD) of
+  the requested domain name (e.g., '.com' for 'google.com').
 
 ARP process
 -----------
